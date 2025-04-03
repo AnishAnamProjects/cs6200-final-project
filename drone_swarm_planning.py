@@ -507,7 +507,7 @@ def run_simulation(env_config, drone_config, sim_config, coverage_target, spread
              ax.set_yticks([])
 
              clear_output(wait=True)
-             plt.draw()              # <-- **FIX 4: Force redraw the figure**
+             plt.draw()
              plt.pause(0.01) 
 
     # --- End of Simulation Loop ---
