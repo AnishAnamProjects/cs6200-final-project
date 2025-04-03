@@ -349,6 +349,7 @@ def run_simulation(env_config, drone_config, sim_config, coverage_target, spread
     first_goal_found_time = -1
     current_coverage = 0.0
 
+    plt.ion()
     fig, ax = plt.subplots(figsize=(10, 10))
     metrics = {} # Store final metrics
 
@@ -506,11 +507,12 @@ def run_simulation(env_config, drone_config, sim_config, coverage_target, spread
              ax.set_yticks([])
 
              clear_output(wait=True)
-             display(fig)
-             time.sleep(0.01)
+             plt.draw()              # <-- **FIX 4: Force redraw the figure**
+             plt.pause(0.01) 
 
     # --- End of Simulation Loop ---
     plt.close(fig)
+    plt.ioff()
     print("\n--- Simulation Ended ---")
 
     # Final Metrics
